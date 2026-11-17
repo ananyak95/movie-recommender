@@ -1,0 +1,9 @@
+
+pandas
+numpy
+requests
+python-dotenv
+rank-bm25
+sentence-transformers
+scikit-learn
+streamlit
