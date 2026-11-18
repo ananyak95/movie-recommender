@@ -67,17 +67,18 @@ desktop.ini
 logs/
 tmp/
 
+
 # ==========================================
 # Movie datasets
 # ==========================================
 
-# Ignore downloaded/generated datasets
-# Keep small sample datasets if needed
-data/raw/
-data/processed/
+# Allow CSV files in data/raw and data/processed
+# so teammates can share the same dataset.
+
+# Ignore temporary cached data
 data/cache/
 
-# Large dataset formats
+# Ignore large binary dataset formats
 *.parquet
 *.feather
 
