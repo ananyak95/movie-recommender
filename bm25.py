@@ -76,15 +76,28 @@ def search_movies(query, top_k=5):
 
     if not top_indices:
         print("No matching movies found.")
-        return
+        return []
 
+    # Store ranked movies in a dictionary
+    ranked_movies = []
     for rank, idx in enumerate(top_indices, start=1):
         movie = movies.iloc[idx]
+
+        movie_description = {
+            "rank": rank,
+            "title": movie['title'],
+            "BM25 Score": scores[idx],
+            "genre": movie['genres_text'],
+            "overview": movie['overview']
+        }
+        ranked_movies.append(movie_description)
 
         print(f"\n{rank}. {movie['title']}")
         print(f"BM25 Score: {scores[idx]:.2f}")
         print(f"Genres: {movie['genres_text']}")
         print(f"Overview: {movie['overview'][:250]}...")
+    
+    return ranked_movies
 
 
 # 7. Interactive search loop
